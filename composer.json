@@ -1,0 +1,17 @@
+{
+    "name": "jared/jared",
+    "autoload": {
+        "psr-4": {
+            "Jared\\Jared\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Jared Bustamante",
+            "email": "jaredbusta@gmail.com"
+        }
+    ],
+    "require": {
+         
+    }
+}

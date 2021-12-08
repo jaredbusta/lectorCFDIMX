@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lector de xml</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" ></script>
+    <script src="js/js.js"></script>
+
+</head>
+<body>
+    
+    <header>
+        <h1 class="text-center">Lector de xml de facturas</h1>
+    </header>
+
+    <main class="container">
+        <section>
+            <p>Seleccione el xml</p>
+        </section>
+        <section>
+            <form action="backend/procesa-xml.php" method="post" enctype="multipart/form-data" id="form" style="display: flex;">
+                <input type="file" name="xml" id="xml" class="form-control"/>
+                <input type="submit" value="procesar" name="procesar" class="btn btn-info"/>
+            </form>
+        </section>
+
+        <section>
+            <div style="display: block;">
+                <label  for="emisor" >Emisor: </label>  <input type="text" id="emisor" class="form-control" >
+                <label for="folio">Folio: </label> <input type="text" id="folio" class="form-control">
+
+            </div>
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>PRODUCTO</th>
+                        <th>P UNITARIO</th>
+                        <th>CANTIDAD</th>
+                        <th>DESCUENTO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                     
+                  </tbody>
+            </table>
+        </section>
+
+    </main>
+
+
+
+
+
+</body>
+</html>
