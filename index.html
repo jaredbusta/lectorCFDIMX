@@ -1,59 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lector de xml</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" ></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/js.js"></script>
-
-</head>
-<body>
-    
+  </head>
+  <body>
     <header>
-        <h1 class="text-center">Lector de xml de facturas</h1>
+      <h1 class="text-center">Lector de xml de facturas</h1>
     </header>
 
     <main class="container">
-        <section>
-            <p>Seleccione el xml</p>
-        </section>
-        <section>
-            <form action="backend/procesa-xml.php" method="post" enctype="multipart/form-data" id="form" style="display: flex;">
-                <input type="file" name="xml" id="xml" class="form-control"/>
-                <input type="submit" value="procesar" name="procesar" class="btn btn-info"/>
-            </form>
-        </section>
+      <section>
+        <p>Cargue el XML</p>
+      </section>
+      <section>
+        <form
+          action="backend/procesa-xml.php"
+          method="post"
+          enctype="multipart/form-data"
+          id="form"
+          style="display: flex"
+        >
+          <input type="file" name="xml" id="xml" class="form-control" accept="text/xml" />
+          <input
+            type="submit"
+            value="procesar"
+            name="procesar"
+            class="btn btn-info"
+          />
+        </form>
+      </section>
 
-        <section>
-            <div style="display: block;">
-                <label  for="emisor" >Emisor: </label>  <input type="text" id="emisor" class="form-control" >
-                <label for="folio">Folio: </label> <input type="text" id="folio" class="form-control">
+      <section>
+        <form
+          class="text-center"
+          style="color: black"
+          method="POST"
+          action="datos_factura.php"
+        >
+          <div class="d-flex justify-content-around">
+            <div style="width: 40%">
+              <div class="md-form">
+                <div class="md-form">
+                  <label>FECHA DEL CAPTURA</label>
+                  <input type="date" name="fecha_dia" id="fecha_dia" class="form-control" required="" />
+                </div>
+                <div class="md-form">
+                  <label>UNIDAD DE NEGOCIO</label>
+                  <select name="unidad_negocio" class="form-control" required="" >
+                    <option value="BD">BD</option>
+                    <option value="VICTOR">VICTOR</option>
+                    <option value="FAURECIA">FAURECIA</option>
+                    <option value="OTROS BD">OTROS BD</option>
+                    <option value="OTROS VICTOR">OTROS VICTOR</option>
+                    <option value="OTROS FAURECIA">OTROS FAURECIA</option>
+                    <option value="OTROS OTROS">OTROS/OTROS</option>
+                  </select>
+                </div>
 
+                <div class="md-form">
+                  <label>PROVEEDOR </label> <a href="#"> + Agregar Proveedor</a>
+                  <input class="form-control" list="brow" name="proveedor" id="proveedor" required="" />
+                  <datalist id="brow">
+                    <option value="LA MILPA"></option>
+                    <option value="CARNE MART"></option>
+                    <option value="SAM`S"></option>
+                    <option value="SORIANA"></option>
+                    <option value="CASA LEY, S.A. P.I. DE C.V."></option>
+                    <option value="AMIGO SAFETY"></option>
+                    <option value="SUPER MC DEL NOROESTE, S.A. DE C.V." ></option>
+                    <option value="DULCERI EL SAHUARO"></option>
+                    <option value='COMERCIALIZADORA "SAN ANDRES"'></option>
+                    <option value="CADENA COMERCIAL OXXO, S.A. DE C.V." ></option>
+                    <option value="ABARREY"></option>
+                    <option value="FARMACIA SIMILARES, S.A. DE C.V."></option>
+                    <option value="HOME DEPOT"></option>
+                    <option value="MATERIALES ARQUITECTONICOS DE SONORA, S.A. DE C.V." ></option>
+                    <option value="UNIFORMES CLINK            "></option>
+                    <option value="AMBISIL"></option>
+                    <option value="NISSAN AUTO, S.A. DE C.V."></option>
+                    <option value="JOSE LUIS VILLARREAL GONZALEZ "></option>
+                    <option value="BODEGA AURRERA"></option>
+                    <option value="DULCERIA CANDY VEL"></option>
+                    <option value="ALBATROS AUTOBUSES, S.A. DE C.V."></option>
+                    <option value="ALMA DELIA MILLAN LOPEZ"></option>
+                    <option value="FUMIGACIONES DEL SOL, S.A. DE C.V."></option>
+                    <option value="FARMACON, S.A. DE C.V."></option>
+                    <option value="UNIFORMES CLINK           "></option>
+                    <option value="MEGACABLE"></option>
+                    <option value="MASTER FUEL"></option>
+                    <option value="OFFICE DEPOT "></option>
+                    <option value="SUQUIEE REPOSTERIA FINA, S.A. DE C.V. " ></option>
+                    <option value="TAPANOSA"></option>
+                    <option value="TU CASA, FERRETERIA Y MATERIALES "></option>
+                    <option value="WALMART "></option>
+                    <option value="MEGAFUTTA FOOD SERVICE"></option>
+                    <option value="GASOLINERA SAN JAVIER, S.A. DE .V."></option>
+                    <option value="HIELERIA VERACRUZ, S.A. DE C.V."></option>
+                    <option value="TORTILLERIA LEYVA"></option>
+                    <option value="SU KARNE"></option>
+                    <option value="HERMO PLASTIC"></option>
+                    <option value="MARISCOS EL REY"></option>
+                    <option value=" 7 ELEVEN"></option>
+                    <option value="COMERCIAL ZAZUETA "></option>
+                    <option value="FARMACIAS GUADALAJARA"></option>
+                    <option value="COSTCO"></option>
+                    <option value="FRUTERIA SAN MARTIN"></option>
+                    <option value="TAMALES GABY"></option>
+                    <option value="LUIS CARLOS RAZCON GARCIA"></option>
+                    <option value="LITTLE CAESARS"></option>
+                    <option value="TORTILLAS LEYVA"></option>
+                    <option value="CFE"></option>
+                    <option value="Agua de Hermosillo"></option>
+                    <option  value="PLASTICOS Y DISTRIBUCIONES ARRISAL SA DE CV" ></option>
+                    <option value="LIVERPOOL"></option>
+                    <option value="AUTOZONE DE MEXICO S DE RL DE CV"></option>
+                  </datalist>
+                </div>
+              </div>
             </div>
-            <table class="table table-bordered table-hover">
-                <thead>
-                    <tr>
-                        <th>PRODUCTO</th>
-                        <th>P UNITARIO</th>
-                        <th>CANTIDAD</th>
-                        <th>DESCUENTO</th>
-                    </tr>
-                </thead>
-                <tbody>
-                     
-                  </tbody>
-            </table>
-        </section>
 
+            <div style="width: 40%">
+              <div class="md-form">
+                <div class="md-form">
+                  <label>FECHA DE FACTURA</label>
+                  <input type="date" name="fecha_captura" class="form-control" />
+                </div>
+
+                <div class="md-form">
+                  <label>NO. FACTURA</label>
+                  <input type="text" name="no_factura" id="no_factura" class="form-control" required="" />
+                </div>
+
+                <div class="md-form">
+                  <label>OBSERVACIONES</label>
+                  <input type="text" name="observaciones" class="form-control" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <input class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0 " type="submit" name="enviar" value="Registrar Compra Diaria"  id="input-submit"  />
+        </form>
+      </section>
+
+      <section>
+
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th>PRODUCTO</th>
+              <th>CATEGORIA</th>
+              <th>P UNITARIO</th>
+              <th>CANTIDAD</th>
+              <th>DESCUENTO</th>
+              <th>IMPUESTOS</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
     </main>
 
-
-
-
-
-</body>
+    
+  </body>
 </html>

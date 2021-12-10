@@ -15,20 +15,23 @@
 
     $productos=[];
 
-    
+    $cont=0;
     foreach ($xml->xpath('//cfdi:Comprobante//cfdi:Conceptos//cfdi:Concepto') as $Concepto){ 
         $productos[]=[
+            "id"=> (int)   $cont,
             "Descripcion"=> (string)   $Concepto['Descripcion'],
             "Cantidad"=> (string)  $Concepto['Cantidad'],
             "ValorUnitario"=> (string)  $Concepto['ValorUnitario'],
-            "Descuento"=> (string)  $Concepto['Descuento'],
+            "Descuento"=> (string)  strlen($Concepto['Descuento'])>0?$Concepto['Descuento']:"0",
         ];  
+        $cont++;
      }
 
      echo json_encode([
-         "emisor"=>$emisor,
-         "folio"=>$folio,
-         "productos"=>$productos,
+         "emisor"   => $emisor,
+         "folio"    => $folio,
+         "fecha"    => date("Y-m-d"),
+         "productos"=> $productos,
      ]);
 
 ?>
